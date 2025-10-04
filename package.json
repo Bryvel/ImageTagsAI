@@ -1,0 +1,27 @@
+{
+  "name": "imagetagsai",
+  "version": "1.0.0",
+  "description": "Ai Tagger",
+  "main": "app.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bryvel/ImageTagsAI.git"
+  },
+  "keywords": [
+    "AI",
+    "Image",
+    "Tagger"
+  ],
+  "author": "Bryan Velasco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bryvel/ImageTagsAI/issues"
+  },
+  "homepage": "https://github.com/Bryvel/ImageTagsAI#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
