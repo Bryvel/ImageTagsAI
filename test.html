@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy HTML with Script</title>
+</head>
+
+<body>
+
+    <h1>Welcome to a Dummy Page</h1>
+    <p>This is a paragraph with some dummy text to illustrate content placement.</p>
+    <p id="dynamicContent">This content will be changed by JavaScript.</p>
+
+    <button onclick="changeText()">Click me to change text</button>
+    <form id="imageUploadForm" enctype="multipart/form-data">
+        <input type="file" id="imageInput" accept="image/*" name="image">
+        <button type="submit">Upload Image</button>
+    </form>
+    <div id="imagePreview"></div>
+    <script>
+        // This is a dummy JavaScript function
+        function changeText() {
+            const element = document.getElementById('dynamicContent');
+            if (element) {
+                element.textContent = 'The content has been updated by the script!';
+                console.log('Text changed successfully.');
+            }
+        }
+
+        // Another dummy script example: logging to console on page load
+        console.log('Dummy script loaded and executed.');
+        const imageUploadForm = document.getElementById('imageUploadForm');
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+
+        imageUploadForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+
+            async function asyncCall() {
+                const file = imageInput.files[0]; // Get the first selected file
+                console.log(file)
+                const formData = new FormData();
+                formData.append('image', file)
+                console.log(formData)
+                console.log(file)
+                try {
+                    const response = await fetch("http://localhost:3000/api/analyze", {
+                        method: "POST",
+                        body: formData
+                    })
+                    
+                    const data2= await formData.get('image')
+                    const data=await response.json()
+                    console.log(data)
+                    console.log(data2,"image data")
+
+
+                } catch (error) {
+                    console.log(error);
+                }
+
+            }
+            asyncCall()
+        });
+
+    </script>
+
+</body>
+
+</html>
