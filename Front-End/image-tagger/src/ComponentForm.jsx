@@ -1,14 +1,22 @@
-import React from 'react';
 import { useState } from 'react';
 import ComponentDisplay from './ComponentDisplay';
 import './App.css';
+// Componentes de Material UI
+import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import OutlinedInput from '@mui/material/OutlinedInput';
+
+
 
 
 
 export default function ComponentForm() {
+    //State de la data
     const [image, setImage] = useState(null)
     const [dataTag, setDataTag] = useState(null)
     const [imageUrl, setImageUrl] = useState(null)
+   //State para cargar el loader y el componente de display
     const [contentDisplay, setContentDisplay] = useState(null)
     const [loaderDisplay, setloaderDisplay] = useState(null)
 
@@ -21,10 +29,12 @@ export default function ComponentForm() {
             setImageUrl(e.target.result);
         };
         reader.readAsDataURL(e.target.files[0]);
+        setContentDisplay(false)
     }
 
     //Funcion para el consumo dl api de analisis de imagenes por IA
     async function HandleUpload(e) {
+        setContentDisplay(false)
         setloaderDisplay(true)
         e.preventDefault()
         const formData = new FormData();
@@ -41,19 +51,18 @@ export default function ComponentForm() {
 
 
     return (
-
         <div>
-            <h1>Analisis de Contenido de Imagenes por IA</h1>
-            <h1>Sube una imagen por favor</h1>
+            <div>
+            <h4>Sube una imagen por favor</h4>
             <form id="imageUploadForm" enctype="multipart/form-data">
-                <input type="file" id="imageInput" accept="image/*" name="image" onChange={HandleImage}></input>
-                <button onClick={HandleUpload}>Analizar</button>
+                <OutlinedInput type="file" id="imageInput" accept="image/*" name="image" onChange={HandleImage}></OutlinedInput>
             </form>
-            {loaderDisplay?<div class="loader"></div>:null}
-            {contentDisplay?<ComponentDisplay dataTag={dataTag} imageUrl={imageUrl} />:null}            
+            {!loaderDisplay ? <Button variant="contained" onClick={HandleUpload}>Analizar</Button> : null}
+            {loaderDisplay ? <Box><CircularProgress /></Box> : null}
+            </div>
 
+            {contentDisplay ? <ComponentDisplay dataTag={dataTag} imageUrl={imageUrl} /> : null}
         </div>
-
     )
 }
 
