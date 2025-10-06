@@ -73,10 +73,10 @@ Back-End
    ```
 5. Crear un archivo de tipo `.env` y colocar las variables de entorno de la siguiente manera
    ```js
-  PORT=80
-  NODE_ENV=development
-  API_KEY=acc_6ed5e0b6eb580d7
-  API_SECRET=e1d2a27da16764a2cd5e2c76324ff8c1;
+     PORT=80
+     NODE_ENV=development
+     API_KEY=acc_6ed5e0b6eb580d7
+     API_SECRET=e1d2a27da16764a2cd5e2c76324ff8c1;
    ```
 6. Iniciar el servidor de back en con el comando en terminal
   ```sh
