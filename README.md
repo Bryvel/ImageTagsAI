@@ -35,8 +35,12 @@ Reto tecnico, con el cual se puede analizar los contenidos de una imagen proporc
 
 
 ### Built With
+
+
 *Express.js v5
 * [![Express][Express.js]][Express-url]
+
+
 *React.js v19.1
 * [![React][React.js]][React-url]
 
