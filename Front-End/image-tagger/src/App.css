@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  background-color: #072666;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  min-width: 100%;
+}
+
+h2 {
+  color: rgb(255, 255, 255);
+}
+
+
+
